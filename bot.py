@@ -1,23 +1,14 @@
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
+from telegram.ext import ApplicationBuilder, CommandHandler
 
-BOT_TOKEN = os.environ.get("8438442286:AAFDLLAqI1zYgNaCQXZUVlXFNCpOEmBP6F0")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [
-        [InlineKeyboardButton("🔥 Join Channel", url="https://web.telegram.org/a/#-1003465632784")],
-        [InlineKeyboardButton("📦 Products", callback_data="products")],
-        [InlineKeyboardButton("💬 Support", url="https://t.me/techdealshuby")]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN is missing!")
 
-    await update.message.reply_text(
-        "Welcome! Choose an option below 👇",
-        reply_markup=reply_markup
-    )
+async def start(update, context):
+    await update.message.reply_text("Bot is running ✅")
 
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
-
 app.run_polling()
