@@ -6,9 +6,9 @@ BOT_TOKEN = os.environ.get("8438442286:AAFDLLAqI1zYgNaCQXZUVlXFNCpOEmBP6F0")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [InlineKeyboardButton("🔥 Join Channel", url="https://t.me/yourchannel")],
+        [InlineKeyboardButton("🔥 Join Channel", url="https://web.telegram.org/a/#-1003465632784")],
         [InlineKeyboardButton("📦 Products", callback_data="products")],
-        [InlineKeyboardButton("💬 Support", url="https://t.me/yourusername")]
+        [InlineKeyboardButton("💬 Support", url="https://t.me/techdealshuby")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
